@@ -50,10 +50,13 @@
     "quickapp" : {},
     /* 小程序特有相关 */
     "mp-weixin" : {
-        "appid" : "",
+        "appid" : "wx3c2d654d149724b6",
         "setting" : {
             "urlCheck" : false
         },
+		//这里加云函数路径
+		"cloudfunctionRoot": "cloudfunctions/",
+		"permission" : {},
         "usingComponents" : true
     },
     "mp-alipay" : {

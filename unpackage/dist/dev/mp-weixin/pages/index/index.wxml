@@ -1,1 +1,1 @@
-<view class="content"><image class="logo" src="/static/logo.png"></image><view class="text-area"><text class="title">{{a}}</text></view></view>
+<view class="content"><image class="logo" src="/static/logo.png" click="getInfo()"></image><view class="text-area"><text>{{a}}</text><button bindtap="{{c}}">Count is: {{b}}</button></view></view>

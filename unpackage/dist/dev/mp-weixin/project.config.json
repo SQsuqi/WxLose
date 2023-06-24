@@ -20,9 +20,10 @@
   },
   "compileType": "miniprogram",
   "libVersion": "2.32.3",
-  "appid": "touristappid",
+  "appid": "wx3c2d654d149724b6",
   "projectname": "WxLose",
   "condition": {},
+  "cloudfunctionRoot": "cloudfunctions/",
   "editorSetting": {
     "tabIndent": "insertSpaces",
     "tabSize": 2

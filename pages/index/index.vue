@@ -1,27 +1,39 @@
 <template>
 	<view class="content">
-		<image class="logo" src="/static/logo.png"></image>
+		<image class="logo" src="/static/logo.png" click="getInfo()"></image>
 		<view class="text-area">
-			<text class="title">{{title}}</text>
+			<text>{{ data[0].name }}</text>
+			<button @click="increment">Count is: {{ count }}</button>
 		</view>
 	</view>
 </template>
 
-<script>
-	export default {
-		data() {
-			return {
-				title: 'Helloooooooo'
-			}
-		},
-		onLoad() {
+<script setup>
+import { ref, onMounted } from 'vue'
 
-		},
-		methods: {
+// 响应式状态
+const count = ref(0);
+let data = ref([{ value: 5 }, { value: 2 }, { value: 3 }, { value: 4 }]);
 
-		}
-	}
+
+// 用来修改状态、触发更新的函数
+function increment() {
+	count.value++;
+	const db = wx.cloud.database();
+	const infos = db.collection('info');
+	infos.get().then(res => {
+        console.log(res.data);
+		data.value  = res.data;
+    })
+	console.log("-------", data.value)
+}
+
+// 生命周期钩子
+onMounted(() => {
+	console.log(`The initial count is ${count.value}.`)
+})
 </script>
+
 
 <style>
 	.content {
